@@ -1,0 +1,81 @@
+@startuml
+class MainCharacterCard {
+- int level
+- float levelUpBonus
++ <<Create>> MainCharacterCard(String,String,int,int,int,float)
++ int sacrifice(Player)
+- int levelUpByBonus(int)
++ float levelUp(Player)
++ String getName()
++ int getLevel()
++ void setLevel(int)
+}
+class BasicCharacterCard {
++ <<Create>> BasicCharacterCard(String,String,int,int,int)
++ int sacrifice(Player)
+}
+abstract class ItemCard {
+# int lpBonus
+# int attackBonus
+# int defenseBonus
++ <<Create>> ItemCard(String,String,int,int,int)
++ {abstract}void equipItem(Player)
++ String toString()
+}
+abstract class Card {
+- String name
+- String description
++ <<Create>> Card(String,String)
++ {abstract}String toString()
++ String getName()
++ String getDescription()
++ int hashCode()
++ boolean equals(Object)
+}
+class ExodiaPartCard {
++ <<Create>> ExodiaPartCard(String,int)
++ void equipItem(Player)
+}
+class Deck {
+- String name
+- int deckSize
+- Card[] deckList
++ <<Create>> Deck(String,Card[])
++ int insertCard(Card)
++ Card removeCard(int)
++ String toString()
++ String getName()
++ void setName(String)
++ int getDeckSize()
++ void setDeckSize(int)
++ Card[] getDeckList()
++ void setDeckList(Card[])
+}
+abstract class CharacterCard {
+# int lifePoint
+# int attackPoint
+# int defensePoint
++ <<Create>> CharacterCard(String,String,int,int,int)
++ void switchCharacter(Player)
++ {abstract}int sacrifice(Player)
++ String toString()
+}
+class BasicItemCard {
++ <<Create>> BasicItemCard(String,String,int,int,int)
++ void equipItem(Player)
+}
+class ExodiaCharacterCard {
++ <<Create>> ExodiaCharacterCard()
++ int sacrifice(Player)
++ boolean winConditionCheck(ItemCard[])
+}
+
+
+CharacterCard <|-- MainCharacterCard
+CharacterCard <|-- BasicCharacterCard
+Card <|-- ItemCard
+ItemCard <|-- ExodiaPartCard
+Card <|-- CharacterCard
+ItemCard <|-- BasicItemCard
+CharacterCard <|-- ExodiaCharacterCard
+@enduml

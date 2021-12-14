@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="Lab3_2021_1_6330258021">
+    <output-path>$PROJECT_DIR$</output-path>
+    <root id="archive" name="Lab3_2021_1_6330258021.jar">
+      <element id="module-source" name="2110215_Lab3_2021_1_6330258021_Noppakorn" />
+      <element id="file-copy" path="$PROJECT_DIR$/2110215_Lab3_2021_1_6330258021_Noppakorn.iml" />
+      <element id="file-copy" path="$PROJECT_DIR$/2110215_Lab3_2021_1_6330258021_Noppakorn.eml" />
+      <element id="file-copy" path="$PROJECT_DIR$/README.md" />
+      <element id="file-copy" path="$PROJECT_DIR$/uml.png" />
+      <element id="file-copy" path="$PROJECT_DIR$/uml.puml" />
+    </root>
+  </artifact>
+</component>

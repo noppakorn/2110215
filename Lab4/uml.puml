@@ -1,0 +1,106 @@
+@startuml
+class Key {
++ int getSymbol()
+}
+class Flag {
++ int getSymbol()
++ boolean interact(Entity)
+}
+interface Updatable {
++ {abstract}void update()
++ {abstract}void valueCorrection()
+}
+class Wall {
++ int getSymbol()
+}
+class Switch {
+- boolean isActive
++ <<Create>> Switch()
++ int getSymbol()
++ boolean interact(Entity)
++ void update()
++ void valueCorrection()
++ boolean isActive()
++ void setActive(boolean)
+}
+class Box {
++ int getSymbol()
++ boolean interact(Entity)
+}
+class ColorBox {
+- boolean activeBool
++ <<Create>> ColorBox(boolean)
++ int getSymbol()
++ boolean interact(Entity)
++ boolean getActiveBool()
++ void setActiveBool(boolean)
+}
+class Player {
++ int getSymbol()
+}
+class Coin {
++ int getSymbol()
++ boolean interact(Entity)
+}
+interface Interactable {
++ {abstract}boolean interact(Entity)
+}
+abstract class Entity {
+- int x
+- int y
+- Direction direction
++ <<Create>> Entity()
++ {abstract}int getSymbol()
++ int getX()
++ void setX(int)
++ int getY()
++ void setY(int)
++ boolean move(Direction)
++ void remove()
++ Direction getDirection()
++ void setDirection(Direction)
++ {static} boolean isBox(Entity)
+}
+interface Consumable {
++ {abstract}boolean consume(Entity)
+}
+class TrashCompactor {
+- int cooldown
++ <<Create>> TrashCompactor()
++ int getSymbol()
++ boolean interact(Entity)
++ boolean consume(Entity)
++ void update()
++ void valueCorrection()
++ int getCooldown()
++ void setCooldown(int)
+}
+class Door {
++ int getSymbol()
++ boolean interact(Entity)
++ boolean consume(Entity)
+}
+
+
+Box <|-- Key
+Interactable <|.. Flag
+Entity <|-- Flag
+Entity <|-- Wall
+Interactable <|.. Switch
+Updatable <|.. Switch
+Entity <|-- Switch
+Interactable <|.. Box
+Entity <|-- Box
+Interactable <|.. ColorBox
+Entity <|-- ColorBox
+Entity <|-- Player
+Interactable <|.. Coin
+Entity <|-- Coin
+Interactable <|.. TrashCompactor
+Consumable <|.. TrashCompactor
+Updatable <|.. TrashCompactor
+Entity <|-- TrashCompactor
+Interactable <|.. Door
+Consumable <|.. Door
+Entity <|-- Door
+@enduml
